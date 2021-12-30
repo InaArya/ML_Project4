@@ -13,7 +13,8 @@ I worked on Mac system, so below are the Mac specific commands i used for this p
 
 1. Create and activate Python environment:
 
-python3 -m venv ~/.devops
+python3 -m venv ~/.devops 
+
 source ~/.devops/bin/activate
 
 2. Install VirtualBox:
@@ -28,19 +29,23 @@ brew cask install minikube
 minikube start
 
 5. Run Docker file
+
 ./run_Docker.sh
 
 4. Run prediction file
+
 ./make_Prediction.sh
 
 5. Run Kubernetes file
 
 ./run_kubernetes.sh
 
-On a separate tab, call the script to make prediction.
+6. On a separate tab, call the script to make prediction.
+
 ./make_prediction2.sh
 
-Once done,delete the minikube
+7. Once done,delete the minikube
+
 minikube delete
 
 

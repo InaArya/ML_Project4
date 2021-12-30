@@ -1,46 +1,49 @@
 [![CircleCI](https://circleci.com/gh/InaArya/ML_Project4/tree/main.svg?style=svg)](https://circleci.com/gh/InaArya/ML_Project4/tree/main)
 
-## Project Overview
+## Overview
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+The projetct deploys an application to predict minimum prices of houses in Bouston. The projects uses Python based app, Docker container and Kubernetes for the orchestration of the container. The tasks like generating logs from python script, Docker image creation and Kubernetes minikube usages are part of the project.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+### How to run the Python scripts
 
-### Project Tasks
+First, Docker account should be created and an image needs to be create. Second, minikube should be installed.
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
+Below are the specific commands:
+I worked on Mac system, so below are the Mac specific commands i used for this project.
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
+1. Create and activate Python environment:
+python3 -m venv ~/.devops
+source ~/.devops/bin/activate
 
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+2. Install VirtualBox:
 
----
+brew cask install virtualbox
 
-## Setup the Environment
+3. Install minikube & start:
 
-* Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
-```bash
-python3 -m pip install --user virtualenv
-# You should have Python 3.7 available in your host. 
-# Check the Python path using `which python3`
-# Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
-```
-* Run `make install` to install the necessary dependencies
+brew cask install minikube
 
-### Running `app.py`
+Start minikube
+minikube start
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+4. Run Docker file
+./run_Docker.sh
+
+4. Run prediction file
+./make_Prediction.sh
+
+5. Run Kubernetes file
+Run Kubernetes
+./run_kubernetes.sh
+On a separate tab, call the script to make prediction.
+./make_prediction2.sh
+Once done,delete the minikube
+minikube delete
+
+
+## Files in Repository
+
+
 
 ### Kubernetes Steps
 
